@@ -1,0 +1,35 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<style>
+.center {
+	margin: 20%;
+	width: 60%;
+	padding: 10px;
+}
+</style>
+
+</h:head>
+
+<h:body>
+	<div class="center">
+		<h:form id="userForm">
+			<p:dataTable value="#{userServiceBean.userList}" var="user"
+				id="userTable" style="background-color: yellow">
+				<p:column headerText="ID">#{user.userID}</p:column>
+				<p:column headerText="UserName">#{user.username}</p:column>
+				<p:column headerText="Password">#{user.password}</p:column>
+				<p:column headerText="Email">#{user.email}</p:column>
+			</p:dataTable>
+			<p:separator></p:separator>
+			<p:commandButton value="Populate"
+				actionListener="#{userServiceBean.populateUserList}"
+				update="userTable"></p:commandButton>
+		</h:form>
+	</div>
+</h:body>
+</html>

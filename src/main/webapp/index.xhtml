@@ -1,0 +1,44 @@
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+	<style>
+.center {
+	margin: 10%;
+	width: 50%;
+	padding: 10px;
+}
+</style>
+
+</h:head>
+
+<h:body>
+	<div style="margin: 25%">
+		<!-- class="center" -->
+		<h:form id="loginForm">
+			<h:panelGrid columns="2" cellpadding="5">
+				<h:outputLabel for="username" value="Username:"
+					style="font-weight:bold" />
+				<p:inputText id="username" value="#{loginView.username}" />
+				<h:outputLabel for="password" value="Password:"
+					style="font-weight:bold" />
+				<p:password id="password" value="#{loginView.password}" />
+			</h:panelGrid>
+			<p:growl id="growl" life="2000">
+				<p:commandButton value="Login" id="login"
+					actionListener="#{loginView.loginAction}" icon="fa-check"
+					ajax="true" update="growl"></p:commandButton>
+				<p:commandButton value="Register" id="register"
+					actionListener="#{loginView.registerAction}" icon="fa-angellist"
+					ajax="true" update="growl"></p:commandButton>
+			</p:growl>
+		</h:form>
+	</div>
+
+
+
+</h:body>
+</html>
